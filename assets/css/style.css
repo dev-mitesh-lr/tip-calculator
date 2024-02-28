@@ -161,10 +161,19 @@
 .tips-amout-outer .form-group p {
   margin: 0;
   font-size: 40px;
+}
+.tips-amout-outer .form-group p input {
+  font-size: 40px;
   color: hsl(172, 67%, 45%);
+  max-width: 210px;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+  text-align: right;
 }
 @media (max-width: 575px) {
-  .tips-amout-outer .form-group p {
+  .tips-amout-outer .form-group p input {
     font-size: 36px;
   }
 }
@@ -212,9 +221,10 @@ body {
 
 .page-wrapper {
   background-color: hsl(173, 61%, 77%);
-  min-height: 100vh;
+  min-height: calc(100vh - 40px);
   flex-direction: column;
   gap: 70px;
+  padding: 20px 0;
 }
 @media (max-width: 767px) {
   .page-wrapper {

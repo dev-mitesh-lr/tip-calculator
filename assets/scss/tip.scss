@@ -83,7 +83,7 @@
     @media (max-width: 575px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    input.tip-btn  {
+    input.tip-btn {
       text-align: center;
       color: $very-dark-cyan;
       background-color: $very-light-grayish-cyan;
@@ -91,7 +91,7 @@
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-      
+
       &:focus,
       &:active,
       &:hover {
@@ -116,7 +116,7 @@
       min-width: 115px;
       font-size: 24px;
       box-sizing: border-box;
-      
+
       cursor: pointer;
       &:hover,
       &.active {
@@ -149,9 +149,18 @@
     p {
       margin: 0;
       font-size: 40px;
-      color: $light-cyan;
-      @media (max-width: 575px) {
-        font-size: 36px;
+      input {
+        font-size: 40px;
+        color: $light-cyan;
+        max-width: 210px;
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+        text-align: right;
+        @media (max-width: 575px) {
+          font-size: 36px;
+        }
       }
     }
   }

@@ -84,9 +84,9 @@ $(document).ready(function () {
             resetBtn.prop("disabled", true);
             return;
         }
-        if (person === '' || isNaN(person) || person <= 0) {
-            $("#tip_amount").html("$0.00");
-            $("#total_amount").html("$0.00");
+        if (person === '' || isNaN(person) || person <= 0 || person > amount) {
+            $("#tip_amount").val("$0.00");
+            $("#total_amount").val("$0.00");
             resetBtn.prop("disabled", true);
             return;
         }
@@ -104,8 +104,8 @@ $(document).ready(function () {
         const amountTipPerPerson = tip / person;
         const amountPerPerson = totalAmount / person;
 
-        $("#tip_amount").html("$" + amountTipPerPerson.toFixed(2));
-        $("#total_amount").html("$" + amountPerPerson.toFixed(2));
+        $("#tip_amount").val("$" + amountTipPerPerson.toFixed(2));
+        $("#total_amount").val("$" + amountPerPerson.toFixed(2));
         resetBtn.prop("disabled", false);
 
     }
@@ -121,8 +121,8 @@ $(document).ready(function () {
         personInput.val("");
         tipInput = 0;
         $(".whole-number-input").val("");
-        $("#tip_amount").html("$0.00");
-        $("#total_amount").html("$0.00");
+        $("#tip_amount").val("$0.00");
+        $("#total_amount").val("$0.00");
         resetBtn.prop("disabled", true);
         $('.tip-btn').removeClass("active");
     });
