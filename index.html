@@ -18,35 +18,51 @@
     <div class="split-outer ">
       <div class="box">
         <div class="form-group">
-          <label>Bill</label>
-          <input type="text" class="input-text">
+          <label>Bill
+            <span class="error-text bill_amount" style="display: none;">Can't be zero</span>
+          </label>
+          <input type="text" class="input-text float-input" id="amount" placeholder="0">
           <img src="./assets/images/icon-dollar.svg" alt="input-icon" />
         </div>
         <div class="form-group mt-40">
-          <label>Select Tip %</label>
+          <label>Select Tip %<span class="error-text tip_amount" style="display: none;">Can't be zero</span>
+          </label>
           <div class="input-group">
             <button type="btn" class="tip-btn">5%</button>
             <button type="btn" class="tip-btn">10%</button>
             <button type="btn" class="tip-btn">15%</button>
             <button type="btn" class="tip-btn">25%</button>
             <button type="btn" class="tip-btn">50%</button>
-            <input type="text" class="tip-btn" placeholder="Custom" />
+            <input type="text" class="tip-btn whole-number-input" placeholder="Custom" id="custom" maxlength="2" />
           </div>
         </div>
         <div class="form-group mt-40">
-          <label>Number of People</label>
-          <input type="text" class="input-text">
+          <label>Number of People <span class="error-text person_value" style="display: none;">Can't be zero</span></label>
+          <input type="text" class="input-text whole-number-input" id="person" placeholder="0">
           <img src="./assets/images/icon-person.svg" alt="input-icon" />
         </div>
       </div>
       <div class="box">
         <div class="tips-amout-outer">
           <div class="form-group mt-40">
-            <label>Select Tip %</label>
-            <p>$4.27</p>
+            <label>Tip Amount
+              <span>/ person</span>
+            </label>
+            <p id="tip_amount">$0.00</p>
+          </div>
+          <div class="form-group mt-40">
+            <label>Total
+              <span>/ person</span>
+            </label>
+            <p id="total_amount">$0.00</p>
+          </div>
+          <div class="form-group mt-40">
+            <button type="text" class="btn reset-btn">Reset</button>
+          </div>
         </div>
       </div>
-    </div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="./assets/js/tip.js"></script>
 </body>
 
 </html>

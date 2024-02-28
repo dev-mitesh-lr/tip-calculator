@@ -1,62 +1,51 @@
 @font-face {
   font-family: "Space Mono";
-  src: url("/assets/fonts/SpaceMono-Bold.woff2") format("woff2"), url("SpaceMono-Bold.woff") format("woff");
+  src: url("../fonts/SpaceMono-Bold.woff2") format("woff2"), url("../fonts/SpaceMono-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Mono";
-  src: url("/assets/fonts/SpaceMono-Regular.woff2") format("woff2"), url("SpaceMono-Regular.woff") format("woff");
+  src: url("../fonts/fonts/SpaceMono-Regular.woff2") format("woff2"), url("../fonts/SpaceMono-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-html,
-body {
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-}
-
-body {
-  font-weight: 700;
-}
-
-.mt-40 {
-  margin-top: 40px;
-}
-
-.page-wrapper {
-  background-color: #c5e4e7;
-  min-height: 100vh;
-  flex-direction: column;
-  gap: 70px;
-}
-.page-wrapper * {
-  font-family: "Space Mono";
-  font-weight: 700;
-  transition: all 0.5s ease;
-}
-
 .split-outer {
   max-width: 920px;
   background-color: hsl(0, 0%, 100%);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 30px;
   display: flex;
   align-items: center;
   gap: 48px;
 }
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 767px) {
+  .split-outer {
+    flex-wrap: wrap;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+}
+@media (max-width: 575px) {
+  .split-outer {
+    width: 90%;
+  }
 }
 
 .box {
-  max-width: 380px;
+  width: 380px;
+}
+@media (max-width: 991px) {
+  .box {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .box {
+    width: 100%;
+  }
 }
 
 .form-group {
@@ -64,7 +53,7 @@ body {
   display: block;
 }
 .form-group label {
-  color: #7f9c9f;
+  color: hsl(186, 14%, 56%);
   font-size: 18px;
   margin-bottom: 10px;
   display: block;
@@ -74,19 +63,25 @@ body {
   max-width: 100%;
   width: -webkit-fill-available;
   min-height: 38px;
-  background-color: #f4fafa;
+  background-color: hsl(180, 37%, 97%);
   border: none;
   border-radius: 8px;
   padding: 6px 12px 6px 30px;
   font-size: 24px;
   text-align: right;
-  color: #00494d;
+  color: hsl(183, 100%, 15%);
   border: 2px solid transparent;
 }
 .form-group .input-text:focus, .form-group .input-text:active, .form-group .input-text:hover {
   outline: none;
   box-shadow: none;
-  border-color: #74a69c;
+  border-color: hsl(168, 22%, 55%);
+}
+.form-group .input-text::placeholder {
+  color: hsl(186, 14%, 56%);
+}
+.form-group .input-text.has-error {
+  border-color: #b47c6f;
 }
 .form-group img {
   position: absolute;
@@ -101,39 +96,171 @@ body {
   gap: 15px;
   flex-wrap: wrap;
 }
+@media (max-width: 575px) {
+  .form-group .input-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .form-group .input-group input.tip-btn {
   text-align: center;
-  color: #00494d;
-  background-color: #f4fafa;
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(180, 37%, 97%);
   border: 2px solid transparent;
+}
+@media (max-width: 991px) {
+  .form-group .input-group input.tip-btn {
+    min-width: 94%;
+  }
+}
+@media (max-width: 575px) {
+  .form-group .input-group input.tip-btn {
+    width: 10%;
+    min-width: 140px;
+  }
 }
 .form-group .input-group input.tip-btn:focus, .form-group .input-group input.tip-btn:active, .form-group .input-group input.tip-btn:hover {
   outline: none;
   box-shadow: none;
-  border-color: #74a69c;
+  border-color: hsl(168, 22%, 55%);
+  background-color: hsl(180, 37%, 97%);
 }
 .form-group .input-group input.tip-btn::placeholder {
-  color: #7f9c9f;
+  color: hsl(186, 14%, 56%);
+}
+.form-group .input-group input.tip-btn.has-error {
+  border-color: hsl(11, 32%, 57%);
 }
 .form-group .input-group .tip-btn {
-  background-color: #00494d;
+  background-color: hsl(183, 100%, 15%);
   color: hsl(0, 0%, 100%);
   border-radius: 6px;
   border: 0;
   min-height: 48px;
   min-width: 115px;
-  width: calc(33.33% - 10px);
   font-size: 24px;
   cursor: pointer;
 }
-.form-group .input-group .tip-btn:hover {
-  background-color: #c5e4e7;
-  color: #00494d;
+@media (max-width: 991px) {
+  .form-group .input-group .tip-btn {
+    min-width: 94%;
+  }
+}
+@media (max-width: 575px) {
+  .form-group .input-group .tip-btn {
+    min-width: 100%;
+    width: 115px;
+  }
+}
+.form-group .input-group .tip-btn:hover, .form-group .input-group .tip-btn.active {
+  background-color: hsl(173, 61%, 77%);
+  color: hsl(183, 100%, 15%);
 }
 
 .tips-amout-outer {
-  background-color: #00494d;
+  background-color: hsl(183, 100%, 15%);
   padding: 30px;
+  border-radius: 10px;
+}
+.tips-amout-outer .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tips-amout-outer .form-group label {
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 0;
+}
+.tips-amout-outer .form-group label span {
+  display: block;
+  font-size: 14px;
+  color: hsl(186, 14%, 56%);
+}
+.tips-amout-outer .form-group p {
+  margin: 0;
+  font-size: 40px;
+  color: hsl(172, 67%, 45%);
+}
+@media (max-width: 575px) {
+  .tips-amout-outer .form-group p {
+    font-size: 36px;
+  }
+}
+
+.reset-btn {
+  border-radius: 4px;
+  width: 100%;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  border: 0;
+  min-height: 48px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 60px;
+}
+.reset-btn:hover {
+  background-color: hsl(173, 61%, 77%);
+}
+.reset-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.reset-btn:disabled:hover {
+  background-color: hsl(172, 67%, 45%) !important;
+  opacity: 0.4;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Space Mono";
+  font-weight: 700;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.page-wrapper {
+  background-color: hsl(173, 61%, 77%);
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 70px;
+}
+@media (max-width: 767px) {
+  .page-wrapper {
+    padding: 50px 0 0;
+    gap: 40px;
+  }
+}
+.page-wrapper * {
+  font-family: "Space Mono";
+  font-weight: 700;
+  transition: all 0.5s ease;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-text {
+  position: absolute;
+  right: 0;
+  color: hsl(11, 32%, 57%);
+}
+@media (max-width: 575px) {
+  .error-text {
+    font-size: 14px;
+    top: 3px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
