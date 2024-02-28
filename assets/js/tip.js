@@ -33,6 +33,10 @@ $(document).ready(function () {
             $('.bill_amount').show();
             $('.float-input').addClass('has-error');
             $('.bill_amount').html("Can't be zero");
+        } else if (/^\.[0-9]/.test(this.value)) {
+            $('.bill_amount').show();
+            $('.float-input').addClass('has-error');
+            $('.bill_amount').html("Invalid input");
         } else {
             $('.bill_amount').hide();
             $('.float-input').removeClass('has-error');
@@ -41,6 +45,7 @@ $(document).ready(function () {
             .replace(/[^0-9.]/g, "")
             .replace(/(\..*)\./g, "$1");
     });
+
 
     // Function to allow only whole numbers (integers)
     $(".whole-number-input").on("input", function () {
@@ -96,10 +101,11 @@ $(document).ready(function () {
                 totalAmount += tip;
             }
         }
+        const amountTipPerPerson = tip / person;
         const amountPerPerson = totalAmount / person;
 
-        $("#tip_amount").html("$" + amountPerPerson.toFixed(2));
-        $("#total_amount").html("$" + totalAmount.toFixed(2));
+        $("#tip_amount").html("$" + amountTipPerPerson.toFixed(2));
+        $("#total_amount").html("$" + amountPerPerson.toFixed(2));
         resetBtn.prop("disabled", false);
 
     }
