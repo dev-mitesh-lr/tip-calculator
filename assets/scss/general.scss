@@ -1,0 +1,137 @@
+// include fonts file
+@import "./font.scss";
+
+// colors variable
+$very-dark-cyan: #00494d;
+$dark-grayish-cyan: #7f9c9f;
+$light-grayish-cyan: #c5e4e7;
+$very-light-grayish-cyan: #f4fafa;
+$border-cyan: #74a69c;
+$white: hsl(0, 0%, 100%);
+
+// general css
+html,
+body {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+body {
+  font-weight: 700;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.page-wrapper {
+  background-color: $light-grayish-cyan;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 70px;
+  * {
+    font-family: "Space Mono";
+    font-weight: 700;
+    transition: all 0.5s ease;
+  }
+}
+
+.split-outer {
+  max-width: 920px;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  max-width: 380px;
+}
+
+.form-group {
+  position: relative;
+  display: block;
+  label {
+    color: $dark-grayish-cyan;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .input-text {
+    display: block;
+    max-width: 100%;
+    width: -webkit-fill-available;
+    min-height: 38px;
+    background-color: $very-light-grayish-cyan;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px 6px 30px;
+    font-size: 24px;
+    text-align: right;
+    color: $very-dark-cyan;
+    border: 2px solid transparent;
+    &:focus,
+    &:active,
+    &:hover {
+      outline: none;
+      box-shadow: none;
+      border-color: $border-cyan;
+    }
+  }
+  img {
+    position: absolute;
+    top: calc(50% + 10px);
+    left: 12px;
+  }
+  .input-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    input.tip-btn {
+      text-align: center;
+      color: $very-dark-cyan;
+      background-color: $very-light-grayish-cyan;
+      border: 2px solid transparent;
+      &:focus,
+      &:active,
+      &:hover {
+        outline: none;
+        box-shadow: none;
+        border-color: $border-cyan;
+      }
+      &::placeholder {
+        color: $dark-grayish-cyan;
+      }
+    }
+    .tip-btn {
+      background-color: $very-dark-cyan;
+      color: $white;
+      border-radius: 6px;
+      border: 0;
+      min-height: 48px;
+      min-width: 115px;
+      width: calc(33.33% + -10px);
+      font-size: 24px;
+      cursor: pointer;
+      &:hover {
+        background-color: $light-grayish-cyan;
+        color: $very-dark-cyan;
+      }
+    }
+  }
+}
+
+// tips amout box css
+
+.tips-amout-outer{
+    background-color: $very-dark-cyan;
+    padding: 30px;
+}
