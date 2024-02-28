@@ -13,6 +13,8 @@ $(document).ready(function () {
         $(this).siblings().removeClass("active");
         $(this).addClass("active");
         tipInput = parseFloat($(this).text());
+        $("#custom").val("");
+        $('#custom').removeClass('active');
         calculateTotal();
 
     });
@@ -20,6 +22,7 @@ $(document).ready(function () {
     customTipInput.on("input", function () {
         tipInput = parseFloat($(this).val());
         $('.tip-btn').removeClass("active");
+        $('#custom').addClass('active');
         calculateTotal();
     });
 
@@ -41,6 +44,7 @@ $(document).ready(function () {
             $('.bill_amount').hide();
             $('.float-input').removeClass('has-error');
         }
+        $('.float-input').addClass('active');
         this.value = this.value
             .replace(/[^0-9.]/g, "")
             .replace(/(\..*)\./g, "$1");
@@ -59,6 +63,7 @@ $(document).ready(function () {
                 $('#custom').removeClass('has-error');
             }
         } else if ($(this).attr("id") === "person") {
+            $('#person').addClass('active');
             if (parseFloat(this.value) == 0) {
                 $('.person_value').show();
                 $('#person').addClass('has-error');
@@ -73,18 +78,23 @@ $(document).ready(function () {
     });
 
     function calculateTotal() {
+        resetBtn.prop("disabled", false);
         const amount = parseFloat(amountInput.val());
-        const person = parseInt(personInput.val());
+        const person = personInput.val() ?? 1;
 
         let tip = 0;
         let totalAmount = amount;
 
-
-        if (amount === '' || isNaN(amount) || amount <= 0) {
-            resetBtn.prop("disabled", true);
+        if (person == '') {
             return;
         }
-        if (person === '' || isNaN(person) || person <= 0 || person > amount) {
+        if (person > amount) {
+            resetBtn.prop("disabled", true);
+            $("#total_amount").val("$0.00");
+            $('.person_value').html("Invalid People").show();
+            return;
+        }
+        if (person === '' || isNaN(person) || person <= 0) {
             $("#tip_amount").val("$0.00");
             $("#total_amount").val("$0.00");
             resetBtn.prop("disabled", true);
@@ -125,5 +135,6 @@ $(document).ready(function () {
         $("#total_amount").val("$0.00");
         resetBtn.prop("disabled", true);
         $('.tip-btn').removeClass("active");
+        $('input').removeClass("active");
     });
 });

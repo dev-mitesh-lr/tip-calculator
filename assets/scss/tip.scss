@@ -61,6 +61,9 @@
       box-shadow: none;
       border-color: $border-cyan;
     }
+    &.active {
+      border-color: $border-cyan;
+    }
     &::placeholder {
       color: $dark-grayish-cyan;
     }
@@ -97,6 +100,10 @@
       &:hover {
         outline: none;
         box-shadow: none;
+        border-color: $border-cyan;
+        background-color: $very-light-grayish-cyan;
+      }
+      &.active {
         border-color: $border-cyan;
         background-color: $very-light-grayish-cyan;
       }
@@ -160,6 +167,7 @@
         text-align: right;
         @media (max-width: 575px) {
           font-size: 36px;
+          max-width: 140px;
         }
       }
     }
