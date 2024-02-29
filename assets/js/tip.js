@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
     const amountInput = $("#amount");
     const personInput = $("#person");
@@ -80,13 +81,16 @@ $(document).ready(function () {
     function calculateTotal() {
         resetBtn.prop("disabled", false);
         const amount = parseFloat(amountInput.val());
-        const person = personInput.val() ?? 1;
+        const person = parseInt(personInput.val(), 10);
 
         let tip = 0;
         let totalAmount = amount;
 
         if (person == '') {
             return;
+        }
+        if (amount >= person) {
+            $('.person_value').html("Invalid People").hide();
         }
         if (person > amount) {
             resetBtn.prop("disabled", true);

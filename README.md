@@ -39,8 +39,8 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- SCSS
+- Flexbox with reusable structures
+- SCSS with variables
 - Mobile-first workflow
 - Custom JS
 - jQuery
